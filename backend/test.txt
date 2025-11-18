@@ -1,0 +1,74 @@
+# Ejecutar todos los tests
+python manage.py test apps.images
+
+# Ejecutar solo tests de MongoDB
+python manage.py test apps.images.MongoDBConnectionTest
+
+# Ejecutar solo tests de Cloudinary
+python manage.py test apps.images.CloudinaryConnectionTest
+
+# Ejecutar test de integración completo
+python manage.py test apps.images.IntegrationTest
+
+# Ejecutar con más detalle (verbose)
+python manage.py test apps.images --verbosity=2
+```
+
+## 📊 Lo que hace cada test:
+
+### **MongoDBConnectionTest**
+- ✅ Verifica conexión a MongoDB
+- ✅ Maneja autenticación si existe
+
+### **CloudinaryConnectionTest** (NUEVOS)
+1. **test_cloudinary_credentials_configured**: Verifica que las credenciales estén en `.env`
+2. **test_cloudinary_connection**: Hace ping a la API de Cloudinary
+3. **test_cloudinary_upload_and_delete**: Sube y elimina una imagen de prueba
+4. **test_cloudinary_storage_backend**: Verifica que Django esté usando el storage correcto
+
+### **IntegrationTest** (NUEVO)
+- ✅ Verifica que TODOS los servicios funcionen juntos
+- ✅ Muestra un reporte completo del estado del sistema
+
+## 🎯 Resultado esperado:
+
+Si todo está bien configurado, verás algo como:
+```
+🔍 Verificando credenciales de Cloudinary...
+✅ CLOUD_NAME: tu_cloud_name
+✅ API_KEY: 1234...5678
+✅ API_SECRET: ***configurado***
+.
+🔍 Probando conexión a Cloudinary API...
+✅ Conexión exitosa a Cloudinary: {'status': 'ok'}
+.
+🔍 Probando upload y delete en Cloudinary...
+  📤 Subiendo imagen de prueba...
+  ✅ Imagen subida exitosamente
+     URL: https://res.cloudinary.com/...
+     Public ID: test-uploads/test_image_django
+  🗑️  Eliminando imagen de prueba...
+  ✅ Imagen eliminada exitosamente
+.
+🔍 Verificando Django Storage Backend...
+  📦 Storage Backend: MediaCloudinaryStorage
+  ✅ Storage Backend configurado correctamente
+.
+============================================================
+🏥 VERIFICACIÓN DE SALUD DEL SISTEMA
+============================================================
+
+1️⃣  MongoDB...
+   ✅ MongoDB: CONECTADO
+
+2️⃣  Cloudinary...
+   ✅ Cloudinary: CONECTADO
+
+============================================================
+🎉 TODOS LOS SERVICIOS ESTÁN FUNCIONANDO CORRECTAMENTE
+============================================================
+
+----------------------------------------------------------------------
+Ran 6 tests in 3.456s
+
+OK
