@@ -114,4 +114,5 @@ He añadido archivos de ejemplo para facilitar la configuración:
 **Importante:** no subas los archivos con credenciales reales al repositorio; añade `backend/.env` y `frontend/.env.local` a tu `.gitignore`.
 
 ---
+<img width="1907" height="1037" alt="Captura de pantalla 2026-01-12 132248" src="https://github.com/user-attachments/assets/78011c13-0cc3-4550-9e0b-fb6f2f6e84ec" />
 
