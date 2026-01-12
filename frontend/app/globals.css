@@ -180,7 +180,7 @@
   }
 
   .upload-zone:hover {
-    border-color: rgba(54, 98, 227, 0.5);
+    border-color: #4D5562;
     background-color: #F9FAFB;
   }
 
@@ -189,7 +189,7 @@
   }
 
   .upload-zone-active {
-    border-color: #3662E3;
+    border-color: #4D5562;
     background-color: rgba(194, 218, 249, 0.1);
   }
 
