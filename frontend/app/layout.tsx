@@ -18,7 +18,8 @@ export const metadata: Metadata = {
   title: "ImageUpload",
   description: "Una aplicación sencilla para subir y gestionar imágenes.",
   icons: {
-    icon: 'logo-small.svg',
+    icon: '/resources/logo-small.svg',
+    shortcut: '/resources/logo-small-32x32.png'  // opcional fallback PNG
   },
 };
 
