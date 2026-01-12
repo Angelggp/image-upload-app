@@ -1,4 +1,5 @@
 import { ImageUploader } from '@/components/ImageUploader'
+import { ArrowUp } from 'lucide-react'
 
 export default function Home() {
   return (
@@ -7,13 +8,14 @@ export default function Home() {
         <ImageUploader />
       </main>
 
-      <footer className="border-t border-gray-200 dark:border-gray-700 py-6">
-        <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-          <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-            Made with ❤️ for image sharing
-          </p>
-        </div>
-      </footer>
+          <footer className="py-4 px-4 relative border-border flex flex-wrap justify-between items-center">
+      {" "}
+      <p className="text-sm text-center text-secondary m-auto">
+        {" "}
+        &copy; {new Date().getFullYear()}  AngelDev - Todos los derechos reservados.
+      </p>
+
+    </footer>
     </>
   )
 }

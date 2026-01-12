@@ -2,6 +2,8 @@
 
 import { Moon, Sun, Image as ImageIcon } from 'lucide-react'
 import { useThemeStore } from '@/store/themeStore'
+import Image from 'next/image'
+import Logo from '@/public/resources/logo-small.svg'
 
 export function Header() {
   const theme = useThemeStore((state) => state.theme)
@@ -12,21 +14,24 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
-            <div className="icon-primary w-8 h-8 rounded-md flex items-center justify-center">
-              <ImageIcon className="w-5 h-5 text-white" strokeWidth={2.5} />
-            </div>
-            <h1 className="text-lg font-semibold header-title">
-              ImageUpload
-            </h1>
+            <Image
+                src={Logo}
+                alt="Logo"
+                width={25}
+                className="object-contain"
+              />
+              <h1 className="hidden sm:block text-lg font-semibold header-title">
+    ImageUpload
+  </h1>
           </div>
 
           <button
             onClick={toggleTheme}
-            className="p-2.5 rounded-lg transition-colors theme-toggle-btn"
+            className="p-2.5 rounded-lg transition-colors theme-toggle-btn "
             aria-label="Toggle theme"
           >
             {theme === 'dark' ? (
-              <Sun className="w-5 h-5 text-yellow-400" />
+              <Sun className="w-5 h-5" />
             ) : (
               <Moon className="w-5 h-5 moon-icon" />
             )}
