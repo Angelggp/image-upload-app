@@ -21,10 +21,11 @@ export function ImageUploader() {
     toast.error(error)
   }
 
+  // ✅ CAMBIO AQUÍ: Pasar imageData.id en lugar de imageData.filename
   const handleDownload = async () => {
-    if (imageData) {
+    if (imageData?.id) {
       try {
-        await downloadImage(imageData.filename)
+        await downloadImage(imageData.id)
       } catch (error) {
         console.error('Download error:', error)
       }

@@ -64,6 +64,70 @@
 }
 
 @layer components {
+
+
+  .header-nav {
+    background-color: var(--color-light-white);
+    border-color: var(--color-light-border);
+  }
+
+  .dark .header-nav {
+    background-color: var(--color-dark-card);
+    border-color: var(--color-dark-text);
+  }
+
+  .header-title {
+    color: var(--color-dark-bg);
+  }
+
+  .dark .header-title {
+    color: var(--color-light-white);
+  }
+
+  .icon-primary {
+    background-color: var(--color-primary);
+  }
+
+  .theme-toggle-btn {
+    background-color: var(--color-light-bg);
+  }
+
+  .dark .theme-toggle-btn {
+    background-color: var(--color-dark-bg);
+  }
+
+  .theme-toggle-btn:hover {
+    opacity: 0.9;
+  }
+
+  .moon-icon {
+    color: var(--color-dark-text);
+  }
+ .upload-text-primary {
+    color: var(--color-dark-bg);
+  }
+
+  .dark .upload-text-primary {
+    color: var(--color-light-white);
+  }
+
+  .upload-text-secondary {
+    color: var(--color-dark-text);
+  }
+
+  .dark .upload-text-secondary {
+    color: #9CA3AF; /* gris más claro para mejor legibilidad en dark mode */
+  }
+
+  .upload-text-link {
+    color: var(--color-primary);
+  }
+
+  .upload-text-link:hover {
+    opacity: 0.9;
+  }
+
+
   .card {
     @apply rounded-xl p-6 shadow-sm;
     background-color: #FFFFFF;

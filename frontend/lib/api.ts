@@ -17,6 +17,11 @@ export interface UploadResponse {
   created_at: string;
 }
 
+export interface DownloadResponse {
+  download_url: string;
+  filename: string;
+}
+
 export const imageApi = {
   upload: async (
     file: File,
@@ -46,11 +51,28 @@ export const imageApi = {
     return response.data;
   },
 
-  download: async (filename: string): Promise<Blob> => {
-    const response = await apiClient.get(`/images/download/${filename}`, {
-      responseType: "blob"
-    });
-    return response.data;
+  download: async (imageId: string): Promise<{ blob: Blob; filename: string }> => {
+    try {
+      // Paso 1: Obtener la URL de descarga desde Django
+      const infoResponse = await apiClient.get<DownloadResponse>(
+        `/images/download/${imageId}/`
+      );
+      
+      const { download_url, filename } = infoResponse.data;
+
+      // Paso 2: Descargar el archivo desde Cloudinary
+      const fileResponse = await axios.get(download_url, {
+        responseType: "blob"
+      });
+
+      return {
+        blob: fileResponse.data,
+        filename: filename
+      };
+    } catch (error) {
+      console.error('Error in download API:', error);
+      throw error;
+    }
   }
 };
 

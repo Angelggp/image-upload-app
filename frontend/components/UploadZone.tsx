@@ -54,17 +54,17 @@ export function UploadZone({ onFileSelect, onError, disabled }: UploadZoneProps)
       <input {...getInputProps()} />
       
       <div className="icon-container mb-6">
-        <Upload className="w-6 h-6 text-[#3662E3]" strokeWidth={2.5} />
+        <Upload className="w-6 h-6" style={{ color: 'var(--color-primary)' }} strokeWidth={2.5} />
       </div>
 
       <div className="text-center">
-        <p className="text-gray-900 dark:text-white mb-2">
+        <p className="upload-text-primary mb-2">
           Drag & drop a file or{' '}
-          <span className="text-[#3662E3] font-medium cursor-pointer hover:underline">
+          <span className="upload-text-link font-medium cursor-pointer hover:underline">
             browse files
           </span>
         </p>
-        <p className="text-sm text-gray-600 dark:text-gray-400">
+        <p className="text-sm upload-text-secondary">
           JPG, PNG or GIF - Max file size 2MB
         </p>
       </div>

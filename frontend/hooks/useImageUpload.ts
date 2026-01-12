@@ -48,21 +48,25 @@ export function useImageUpload() {
     }
   }
 
-  const downloadImage = async (filename: string) => {
+  // ✅ MÉTODO ACTUALIZADO: Ahora recibe imageId en lugar de filename
+  const downloadImage = async (imageId: string) => {
     try {
-      const blob = await imageApi.download(filename)
-      const url = window.URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = filename
-      document.body.appendChild(a)
-      a.click()
-      document.body.removeChild(a)
-      window.URL.revokeObjectURL(url)
-      toast.success('Download started!')
+      const { blob, filename } = await imageApi.download(imageId);
+      
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename; // Usar el filename original del servidor
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+      
+      toast.success('Download started!');
     } catch (error) {
-      toast.error('Failed to download image')
-      throw error
+      console.error('Download error:', error);
+      toast.error('Failed to download image');
+      throw error;
     }
   }
 
