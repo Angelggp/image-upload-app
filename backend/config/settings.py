@@ -120,7 +120,8 @@ else:
 connect(
     db=MONGO_DB_NAME,
     host=MONGODB_URI,
-    alias='default'
+    alias='default',
+    tls=True
 )
 
 
