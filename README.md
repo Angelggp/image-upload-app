@@ -116,3 +116,7 @@ He añadido archivos de ejemplo para facilitar la configuración:
 ---
 <img width="1907" height="1037" alt="Captura de pantalla 2026-01-12 132248" src="https://github.com/user-attachments/assets/78011c13-0cc3-4550-9e0b-fb6f2f6e84ec" />
 
+Enlace a la aplicación web desplegada:
+https://image-upload-app-kappa.vercel.app/
+
+
